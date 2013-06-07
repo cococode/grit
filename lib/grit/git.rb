@@ -183,7 +183,8 @@ module Grit
     end
 
     def commit_from_sha(id)
-      git_ruby_repo = GitRuby::Repository.new(self.git_dir)
+      # use the ruby_git instead create new one
+      git_ruby_repo = ruby_git #GitRuby::Repository.new(self.git_dir)
       object = git_ruby_repo.get_object_by_sha1(id)
 
       if object.type == :commit

@@ -206,6 +206,10 @@ module Grit
       @ruby_git_repo ||= Repository.new(@git_dir)
     end
 
+    def init_and_catch_ruby_git
+        ruby_git.init_and_catch
+    end
+
     private
 
       def try_run

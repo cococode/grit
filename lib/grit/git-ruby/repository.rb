@@ -686,6 +686,13 @@ module Grit
         end if @packs
       end
 
+      #Add to laod all pack object during initialize, then this object could be cached
+      def init_and_catch
+        @options.merge! :map_packfile => true
+        @loose = initloose
+        @packs = initpacks       
+      end
+
       protected
 
         def git_path(path)
